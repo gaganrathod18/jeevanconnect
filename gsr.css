@@ -397,7 +397,7 @@ header .multilingual-dropdown li:hover {
 footer {
   background-color: #000814;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
 }
 
 footer p {
@@ -450,4 +450,6 @@ header .more {
     background-color: #001d3d;
     color: #f9f0ca;
   }
+  
+
   
