@@ -1,0 +1,18 @@
+.chat-item button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  background-color: #ffcc00;
+  color: #003566;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight:500
+}
+
+.chat-item p{
+    font-size: 1.3em;
+}
+
+.chat-item h4{
+    font-size: 1.8em;
+}
