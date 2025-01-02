@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JeevanConnect - Healthcare for All</title>
+
+  
+
+  <link rel="stylesheet" href="gsr.css">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS (include both popper.js and bootstrap.js) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+<style>
+  body{
+    color: white;
+  }
+</style>
+  
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <a href="https://ibb.co/cLC5MfW">
+        <img src="https://i.ibb.co/tXxfkj0/FINAL-LOGO-removebg-preview.png" alt="FINAL-LOGO-removebg-preview"
+          border="0">
+      </a>
+    </div>
+    <nav>
+      <ul>
+
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="medical-recommendation.html">Medical Recommendation</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="blood-donation.html">Blood Donation</a></li>
+        <li class="multilingual">
+          <a>Multilingual</a>
+          <ul class="multilingual-dropdown">
+            <li onclick="setLanguage('English')">English</li>
+            <li onclick="setLanguage('Hindi')">Hindi</li>
+            <li onclick="setLanguage('Marathi')">Marathi</li>
+            <li onclick="setLanguage('Tamil')">Tamil</li>
+            <li onclick="setLanguage('Kannada')">Kannada</li>
+            <li onclick="setLanguage('Bengali')">Bengali</li>
+            <li onclick="setLanguage('Gujarati')">Gujarati</li>
+            <li onclick="setLanguage('Punjabi')">Punjabi</li>
+            <li onclick="setLanguage('Urdu')">Urdu</li>
+            <li onclick="setLanguage('Telugu')">Telugu</li>
+            <li onclick="setLanguage('Malayalam')">Malayalam</li>
+            <li onclick="setLanguage('Odia')">Odia</li>
+            <li onclick="setLanguage('Assamese')">Assamese</li>
+            <li onclick="setLanguage('Marwari')">Marwari</li>
+            <li onclick="setLanguage('Kashmiri')">Kashmiri</li>
+          </ul>
+        </li>
+        <li><a href="emergency.html">Support</a></li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-text">
+      <h2>Your Health, Our Priority</h2>
+      <p>Connecting rural communities with the best healthcare solutions</p>
+      <button onclick="scrollToFeatures()">Explore Features</button>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features">
+    <h2 style="margin-bottom: 40px; text-align: center;">Our Features</h2>
+    <div class="features-container">
+      <div class="feature-item" id="doctor-chat">
+        <a href="https://ibb.co/84jsCvj"><img src="https://i.ibb.co/5Kg3CCC/YOUTUBE-IMAGE.jpg" alt="Doctor Chat"
+            border="0"></a><br />
+        <p>Dr. Rajesh Kumar - Doctor-Patient Chat</p>
+        <p>Get real-time medical advice from certified professionals.</p>
+      </div>
+      <div class="feature-item">
+        <a href="https://ibb.co/3fkdZMX"><img src="https://i.ibb.co/G3Vp6YV/istockphoto-1064019662-1024x1024.jpg"
+            alt="QR-FOR-DONATION" border="0"></a><br />
+        <p>Child Specialist</p>
+        <p>Our emergency 24/7 support improve's healthcare access for all.</p>
+      </div>
+      <div class="feature-item">
+        <a href="https://ibb.co/Qbrbdmt">
+          <img src="https://i.ibb.co/Qbrbdmt/EMERGENCY.webp" alt="Automated Alerts" border="0">
+        </a><br />
+        <p>Automated Alerts</p>
+        <p>This feature provides real-time alerts in case of patient emergencies.</p>
+      </div>
+    </div>
+  </section>
+
+  </div>
+  </section>
+
+ <!-- <youtube video> -->
+  <section id="work" class="container-fluid" style="padding-top: 10px; padding-bottom: 10px; background-color: #001c3c;">
+    <h2 class="section-title" style="margin-bottom:40px; text-align: center;">Youtube Videos</h2>
+  
+    <!-- Carousel with max 3 videos visible at once -->
+    <div id="workCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+      <div class="carousel-inner">
+        <!-- Carousel Item 1 (3 videos in one item) -->
+        <div class="carousel-item active glow-effect">
+          <div class="row">
+            <div class="col-md-4">
+              <!-- YouTube Video 1 -->
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/lr1L_xUKB1E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="col-md-4">
+              <!-- YouTube Video 2 -->
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/ILu4LcipWI0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="col-md-4">
+              <!-- YouTube Video 3 -->
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/xR_8_OHFo1k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Carousel Item 2 (Remaining 2 videos) -->
+        <div class="carousel-item glow-effect">
+          <div class="row">
+            <div class="col-md-4">
+              <!-- YouTube Video 4 -->
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/lr1L_xUKB1E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="col-md-4">
+              <!-- YouTube Video 5 -->
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/ILu4LcipWI0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="col-md-4">
+              <!-- YouTube Video 5 -->
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/ILu4LcipWI0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#workCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#workCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+  
+
+  
+
+  <!-- Doctor-Patient Chat Section -->
+  <section id="chat-section">
+    <h3 style="margin-bottom: 40px;">Connect with Our Doctors</h3>
+    <div class="chat-container">
+      <div class="chat-item">
+        <h4>Dr. Priya Sharma</h4>
+        <p>General Practitioner</p>
+        <button>Start Chat</button>
+      </div>
+      <div class="chat-item">
+        <h4>Dr. Arun Verma</h4>
+        <p>Cardiologist</p>
+        <button>Start Chat</button>
+      </div>
+      <div class="chat-item">
+        <h4>Dr. Neha Yadav</h4>
+        <p>Pediatrician</p>
+        <button>Start Chat</button>
+      </div>
+    </div>
+  </section>
+  <!-- Success Stories Section -->
+  <section id="success-stories" style="padding: 50px 20px; background-color: #f9f9f9;">
+    <h2 style="text-align: center; font-size: 2em; margin-bottom: 30px; color: black;">Success Stories</h2>
+    <div class="stories-container" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+      <!-- Story 1 -->
+      <div class="story-item" style="flex: 1; max-width: 30%; margin: 20px;">
+        <div class="story-content"
+          style="padding: 20px; background-color: #fff; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); border-radius: 8px;">
+          <h3 style="font-size: 1.5em;">Kabir Devgan</h3>
+          <p><strong>Disease: </strong> Heart Disease</p>
+          <p><em>"I never thought I'd be able to recover from my condition, but JeevanConnect connected me with the
+              right doctors and now I'm feeling better than ever!"</em></p>
+        </div>
+      </div>
+      <!-- Story 2 -->
+      <div class="story-item" style="flex: 1; max-width: 30%; margin: 20px;">
+        <div class="story-content"
+          style="padding: 20px; background-color: #fff; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); border-radius: 8px;">
+          <h3 style="font-size: 1.5em;">Amit Mishra</h3>
+          <p><strong>Disease: </strong> Chronic Kidney Disease</p>
+          <p><em>"The guidance I received from JeevanConnect’s specialists helped me manage my chronic illness
+              effectively. I'm grateful for their continuous support!"</em></p>
+        </div>
+      </div>
+      <!-- Story 3 -->
+      <div class="story-item" style="flex: 1; max-width: 30%; margin: 20px;">
+        <div class="story-content"
+          style="padding: 20px; background-color: #fff; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); border-radius: 8px;">
+          <h3 style="font-size: 1.5em;">Pratibha Patil</h3>
+          <p><strong>Disease: </strong> Cancer</p>
+          <p><em>"Thanks to the timely support from JeevanConnect, I received life-saving advice. I’m now back on my
+              feet and full of energy!"</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support Us Section -->
+  <section id="support-us" style="background-color: #003566; color: #fff; padding: 50px 20px;">
+    <div style="text-align: center;">
+      <h2 style="color: #ffcc00;">Support Us</h2>
+      <p style="font-size: 1.2em; margin-bottom: 20px;">
+        Your donations can save lives and help us provide medical aid to cancer patients and those in need.
+      </p>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center;">
+      <div style="flex: 1; max-width: 45%; margin: 10px;">
+        <h3 style="color: #ffcc00;">Bank Details</h3>
+        <p><strong>Account Name:</strong> JeevanConnect</p>
+        <p><strong>Account Number:</strong> 1234567890</p>
+        <p><strong>IFSC Code:</strong> ABCD0123456</p>
+        <p><strong>Bank:</strong> Jeevan Bank, Main Branch</p>
+      </div>
+      <div style="flex: 1; max-width: 45%; margin: 10px; text-align: center;">
+        <h3 style="color: #ffcc00;">Scan to Donate</h3>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAL0AAAELCAMAAAC77XfeAAABQVBM..." alt="Base64 Image" />
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 30px;">
+      <button onclick="alert('Thank you for your support!')"
+        style="padding: 10px 20px; font-size: 1em; background-color: #ffcc00; color: #003566; border: none; cursor: pointer; border-radius: 5px;">Donate
+        Now</button>
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 JeevanConnect. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function setLanguage(language) {
+      alert('Language set to: ' + language);
+    }
+
+    function scrollToFeatures() {
+      document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+
+
+
+  <!-- Chatbot Popup -->
+  <div id="chatbot-popup" class="chatbot-popup">
+    <div class="chatbot-header">
+      <span>ChatBot</span>
+      <button id="close-chatbot" class="close-btn">&times;</button>
+    </div>
+    <div class="chatbot-body">
+      <div id="chatbox" class="chatbox">
+        <!-- Chat messages will appear here -->
+      </div>
+      <input type="text" id="user-input" class="user-input" placeholder="Type a message...">
+      <button id="send-message" class="send-btn">Send</button>
+    </div>
+  </div>
+
+  <!-- Button to open chatbot -->
+  <button id="open-chatbot" class="open-chat-btn">Chat with us</button>
+
+
+  <! --- javascript for chatbot --->
+    <!-- Place this before the closing </body> tag -->
+    <script>
+      // JavaScript code here...
+      document.getElementById('open-chatbot').addEventListener('click', function () {
+        document.getElementById('chatbot-popup').style.display = 'flex';
+      });
+
+      document.getElementById('close-chatbot').addEventListener('click', function () {
+        document.getElementById('chatbot-popup').style.display = 'none';
+      });
+
+      document.getElementById('send-message').addEventListener('click', function () {
+        let userMessage = document.getElementById('user-input').value;
+
+        if (userMessage) {
+          let chatbox = document.getElementById('chatbox');
+          chatbox.innerHTML += `<div class="user-message">${userMessage}</div>`;
+          document.getElementById('user-input').value = '';
+
+          setTimeout(function () {
+            let botMessage = "Hello! How can I assist you today?";
+            chatbox.innerHTML += `<div class="bot-message">${botMessage}</div>`;
+            chatbox.scrollTop = chatbox.scrollHeight;
+          }, 1000);
+        }
+      });
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>
