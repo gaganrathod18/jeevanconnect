@@ -420,6 +420,34 @@ footer p {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-
-
+/* Styling for More dropdown */
+header .more {
+    position: relative;
+  }
+  
+  header .more:hover .more-dropdown {
+    display: block; /* Show the dropdown when hovering over the More button */
+  }
+  
+  header .more-dropdown {
+    display: none; /* Hide the dropdown by default */
+    position: absolute;
+    top: 100%;
+    left: -30px; /* Shift the dropdown slightly to the left */
+    background-color: #001d3d;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  header .more-dropdown li {
+    list-style-type: none;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  header .more-dropdown li:hover {
+    background-color: #001d3d;
+    color: #f9f0ca;
+  }
   
