@@ -23,6 +23,22 @@
   body{
     color: white;
   }
+/* Hide the entire Google Translate iframe (including branding) */
+
+
+/* Style to make the language dropdown visible */
+#google_translate_element select {
+  display: block !important;
+  width: 210px;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
 </style>
   
 </head>
@@ -42,26 +58,46 @@
         <li><a href="login.html">Login</a></li>
         <li><a href="medical-recommendation.html">Medical Recommendation</a></li>
         
-        <li class="multilingual">
-          <a>Multilingual ▼</a>
-          <ul class="multilingual-dropdown">
-            <li onclick="setLanguage('English')">English</li>
-            <li onclick="setLanguage('Hindi')">Hindi</li>
-            <li onclick="setLanguage('Marathi')">Marathi</li>
-            <li onclick="setLanguage('Tamil')">Tamil</li>
-            <li onclick="setLanguage('Kannada')">Kannada</li>
-            <li onclick="setLanguage('Bengali')">Bengali</li>
-            <li onclick="setLanguage('Gujarati')">Gujarati</li>
-            <li onclick="setLanguage('Punjabi')">Punjabi</li>
-            <li onclick="setLanguage('Urdu')">Urdu</li>
-            <li onclick="setLanguage('Telugu')">Telugu</li>
-            <li onclick="setLanguage('Malayalam')">Malayalam</li>
-            <li onclick="setLanguage('Odia')">Odia</li>
-            <li onclick="setLanguage('Assamese')">Assamese</li>
-            <li onclick="setLanguage('Marwari')">Marwari</li>
-            <li onclick="setLanguage('Kashmiri')">Kashmiri</li>
-          </ul>
-        </li>
+  <!-- Single Language Selection Button -->
+<li class="multilingual">
+  <a href="javascript:void(0)" onclick="toggleLanguage()">Language ▼</a>
+</li>
+
+<!-- Google Translate Script -->
+<div id="google_translate_element" style="display: none;"></div>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script type="text/javascript">
+// Initialize Google Translate Element
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+
+// Toggle language when button is clicked
+var currentLanguageIndex = 0;
+var languages = ['en', 'hi', 'mr', 'ta', 'kn', 'bn', 'gu', 'pa', 'ur', 'te', 'ml', 'or', 'as', 'mwr', 'ks']; // Add more language codes if needed
+
+function toggleLanguage() {
+  // Hide the Language button
+  document.querySelector('.multilingual').style.display = 'none';
+  
+  // Show the Google Translate element
+  var googleTranslateElement = document.getElementById('google_translate_element');
+  googleTranslateElement.style.display = 'block';
+
+  // Cycle through the languages
+  currentLanguageIndex = (currentLanguageIndex + 1) % languages.length;
+  var selectedLanguage = languages[currentLanguageIndex];
+
+  // Call the Google Translate API to change the language
+  var googleTranslateInstance = new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+  googleTranslateInstance.handleSelect(selectedLanguage);
+}
+</script>
+
+
+
 
        <!-- More dropdown -->
 <li class="more">
@@ -245,40 +281,73 @@
     </div>
   </section>
 
-  <!-- Support Us Section -->
-  <section id="support-us" style="background-color: #003566; color: #fff; padding: 50px 20px;">
-    <div style="text-align: center;">
-      <h2 style="color: #ffcc00;">Support Us</h2>
-      <p style="font-size: 1.2em; margin-bottom: 20px;">
-        Your donations can save lives and help us provide medical aid to cancer patients and those in need.
-      </p>
-    </div>
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center;">
-      <div style="flex: 1; max-width: 45%; margin: 10px;">
-        <h3 style="color: #ffcc00;">Bank Details</h3>
-        <p><strong>Account Name:</strong> JeevanConnect</p>
-        <p><strong>Account Number:</strong> 1234567890</p>
-        <p><strong>IFSC Code:</strong> ABCD0123456</p>
-        <p><strong>Bank:</strong> Jeevan Bank, Main Branch</p>
-      </div>
-      <div style="flex: 1; max-width: 45%; margin: 10px; text-align: center;">
-        <h3 style="color: #ffcc00;">Scan to Donate</h3>
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAL0AAAELCAMAAAC77XfeAAABQVBM..." alt="Base64 Image" />
-      </div>
-    </div>
-    <div style="text-align: center; margin-top: 30px;">
-      <button onclick="alert('Thank you for your support!')"
-        style="padding: 10px 20px; font-size: 1.2em; font-weight:500; background-color: #ffcc00; color: #003566; border: none; cursor: pointer; border-radius: 5px;">Donate
-        Now</button>
-    </div>
-  </section>
 
+  <!-- Support Us Section -->
+<section id="support-us" style="background-color: #003566; color: #fff; padding: 50px 20px;">
+  <div style="text-align: center;">
+    <h2 style="color: #ffcc00;">Support Us</h2>
+    <p style="font-size: 1.2em; margin-bottom: 20px;">
+      Your donations can save lives and help us provide medical aid to cancer patients and those in need.
+    </p>
+  </div>
+
+  <!-- Progress Bar -->
+  <div style="text-align: center; margin-bottom: 30px;">
+    <h3 style="color: #ffcc00;">Our Goal: ₹50,000</h3>
+    <div style="width: 80%; margin: 0 auto; background-color: #ddd; border-radius: 20px; overflow: hidden;">
+      <div style="width: 60%; background-color: #ffcc00; height: 20px;"></div>
+    </div>
+    <p style="margin-top: 10px;">₹30,000 raised so far</p>
+  </div>
+
+  <!-- Donation Methods Section -->
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center; margin-bottom: 30px;">
+    <div style="flex: 1; max-width: 45%; margin: 10px;">
+      <h3 style="color: #ffcc00;">Bank Details</h3>
+      <p><strong>Account Name:</strong> JeevanConnect</p>
+      <p><strong>Account Number:</strong> 1234567890</p>
+      <p><strong>IFSC Code:</strong> ABCD0123456</p>
+      <p><strong>Bank:</strong> Jeevan Bank, Main Branch</p>
+    </div>
+
+    <div style="flex: 1; max-width: 45%; margin: 10px; text-align: center;">
+      <h3 style="color: #ffcc00;">Scan to Donate</h3>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAL0AAAELCAMAAAC77XfeAAABQVBM..." alt="QR Code" />
+    </div>
+  </div>
+
+
+  <!-- Donate Button with Dropdown -->
+  <div style="text-align: center; margin-top: 30px;">
+    <button id="donateBtn" style="padding: 10px 20px; font-size: 1.2em; font-weight:500; background-color: #ffcc00; color: #003566; border: none; cursor: pointer; border-radius: 5px;">
+      Donate Now
+    </button>
+
+    <!-- Dropdown Menu -->
+    <div id="donateDropdown" style="display: none; margin-top: 10px; text-align: center; background-color: #004080; border-radius: 5px; padding: 10px;">
+      <button style="padding: 10px 20px; font-size: 1.1em; background-color: #003566; color: #ffcc00; border: none; margin: 10px; border-radius: 5px; cursor: pointer;" onclick="alert('Redirecting to UPI Payment')">UPI</button>
+      <button style="padding: 10px 20px; font-size: 1.1em; background-color: #003566; color: #ffcc00; border: none; margin: 10px; border-radius: 5px; cursor: pointer;" onclick="alert('Redirecting to Credit Card Payment')">Credit Card</button>
+      <button style="padding: 10px 20px; font-size: 1.1em; background-color: #003566; color: #ffcc00; border: none; margin: 10px; border-radius: 5px; cursor: pointer;" onclick="alert('Redirecting to Bank Transfer')">Bank Transfer</button>
+    </div>
+  </div>
+
+</section>
+
+<script>
+  // Toggle the visibility of the donation options dropdown
+  document.getElementById('donateBtn').addEventListener('click', function() {
+    const dropdown = document.getElementById('donateDropdown');
+    dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+  });
+</script>
 
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2024 JeevanConnect. All Rights Reserved.</p>
   </footer>
+
+  
 
   <script>
     function setLanguage(language) {
@@ -312,7 +381,7 @@
   <button id="open-chatbot" class="open-chat-btn">Chat with us</button>
 
 
-  <! --- javascript for chatbot --->
+  <!-- javascript for chatbot -->
     <!-- Place this before the closing </body> tag -->
     <script>
       // JavaScript code here...
