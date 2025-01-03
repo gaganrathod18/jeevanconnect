@@ -197,15 +197,15 @@ html {
 
 /* Header */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background: linear-gradient(#001d3d, black);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 29, 61, 0.7)); /* Transparent gradient */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
 
 header .logo {
   display: flex;
@@ -452,4 +452,3 @@ header .more {
   }
   
 
-  

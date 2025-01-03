@@ -37,6 +37,37 @@
     .register-section {
       margin-top: 30px;
     }
+
+    .button-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .back-button {
+      padding: 15px 30px;
+      background-color: rgba(255, 255, 255, 0.76);
+      color: black;
+      border: black;
+      border-style:solid;
+      border-width: 1px;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+    }
+    footer {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding: 0px;
+}
   </style>
 </head>
 <body>
@@ -55,5 +86,12 @@
       <button onclick="window.location.href='register.html'">New Register</button>
     </div>
   </div>
+
+  <footer>
+    <div class="button-container">
+      <br></br>
+      <button class="back-button" onclick="window.location.href='index.html'" style="font-size: 1.3em; border-radius: 1.5em;">Back to Home</button>
+    </div>
+  </footer>
 </body>
 </html>
