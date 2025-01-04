@@ -1,0 +1,454 @@
+
+#success-stories {
+  padding: 50px 20px;
+  background-color: #f4f4f9;
+  /* Light background for better contrast */
+}
+
+.stories-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.story-item {
+  flex: 1;
+  max-width: 30%;
+  margin: 20px;
+}
+
+.story-content {
+  padding: 20px;
+  background-color: #ffffff;
+  /* White background for contrast */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* Slightly stronger shadow for better definition */
+  border-radius: 12px;
+  /* Rounded corners */
+  color: #333;
+  /* Dark text for readability */
+  font-family: Arial, sans-serif;
+  /* A clean, readable font */
+  line-height: 1.6;
+  /* Increased line height for better readability */
+}
+
+.story-content h3 {
+  font-size: 1.8em;
+  /* Bigger font size for the names */
+  color: #0056b3;
+  /* A strong color for names */
+  margin-bottom: 10px;
+}
+
+.story-content p {
+  font-size: 1.2em;
+  /* Slightly larger text for readability */
+  color: #444;
+  /* Dark gray text for better contrast */
+  margin-bottom: 15px;
+  /* Adds space between paragraphs */
+}
+
+.story-content em {
+  font-style: italic;
+  color: #555;
+  /* Lighter gray for the testimonial text */
+  font-size: 1.1em;
+  /* Slightly larger for emphasis */
+}
+
+.story-content strong {
+  font-weight: bold;
+  color: #333;
+  /* Dark color for the disease text */
+}
+
+@media (max-width: 768px) {
+  .story-item {
+    max-width: 100%;
+    /* Stacks stories vertically on smaller screens */
+    margin: 10px 0;
+  }
+}
+
+.story-content:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  /* Slight zoom effect on hover */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Chatbot Pop-Up Style */
+#chatbot-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  background-color: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  display: none;
+  /* Hidden by default */
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.chatbot-header {
+  background-color: #003566;
+  color: white;
+  padding: 10px;
+  font-size: 1.2em;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.chatbot-body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.chatbox {
+  overflow-y: scroll;
+  height: 80%;
+  margin-bottom: 10px;
+}
+
+.user-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.send-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #003566;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Button to open chatbot */
+.open-chat-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  background-color: #003566;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.open-chat-btn:hover {
+  background-color: #005588;
+}
+
+/* Style for the 'Chatbot' button */
+.open-chat-btn {
+  background-color: #ffcc00;
+  /* Yellow color */
+  color: #000;
+  /* Black text */
+  font-size: 1.2em;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect to make it a bit darker when hovered */
+.open-chat-btn:hover {
+  background-color: #ff9900;
+  /* Darker yellow for hover */
+  color: #fff;
+  /* White text on hover */
+}
+
+/* General Styles */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  color:white;
+  background-color: #001c3c;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px;
+    background-color: #071524;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+header .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .logo img {
+  width: 150px;
+  height: auto;
+  margin-right: 20px;
+}
+
+header nav ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li {
+  margin: 0 15px;
+  position: relative;
+}
+
+header nav ul li a {
+  display: inline-block; /* Makes the <a> act like a block element */
+  background-color: none; /* Button background color */
+  color: white; /* Text color */
+  padding: 10px 20px; /* Padding for button look */
+  text-decoration: none;
+  border-radius: 5px; /* Rounded corners for the button */
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+header nav ul li a:hover {
+  background-color: #ffcc00; /* Change background on hover */
+  color: black; /* Change text color on hover */
+}
+
+header .multilingual {
+  position: relative;
+}
+
+header .multilingual:hover .multilingual-dropdown {
+  display: block; /* Show the dropdown when hovering over the multilingual button */
+}
+
+header .multilingual-dropdown {
+  display: none; /* Hide the dropdown by default */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #001d3d;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .multilingual-dropdown li {
+  list-style-type: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+header .multilingual-dropdown li:hover {
+  background-color: #006bde;
+  color: #f9f0ca;
+}
+
+/* Multilingual Dropdown */
+.multilingual-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #001d3d;
+  color: #fff;
+  display: none;
+  list-style-type: none;
+  padding: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.multilingual-dropdown li {
+  padding: 10px 20px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.multilingual-dropdown li:hover {
+  background-color: #6c757d;
+  /* Changed yellow to greyish */
+  color: #000814;
+}
+
+.multilingual:hover .multilingual-dropdown {
+  display: block;
+}
+
+/* Hero Section */
+#hero {
+  background-color: #003566;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+#hero h2 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+#hero p {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+}
+
+#hero button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: grey;
+  /* Changed yellow to greyish */
+  border: none;
+  cursor: pointer;
+  color: #000814;
+}
+#hero button:hover {
+  padding: 20px 40px;
+  background-color: #ffcc00;
+}
+
+/* Features Section */
+#features {
+  padding: 50px 20px;
+  background-color: #001d3d;
+}
+
+.features-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.feature-item {
+  width: 30%;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.feature-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.feature-item p {
+  font-size: 1.2em;
+  margin-top: 15px;
+}
+
+/* Doctor-Patient Chat Section */
+#chat-section {
+  padding: 50px 20px;
+  background-color: #001d3d;
+  text-align: center;
+}
+
+#chat-section .chat-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#chat-section .chat-item {
+  width: 30%;
+  margin: 10px;
+  text-align: center;
+  background-color: #003566;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+  background-color: #000814;
+  text-align: center;
+  padding: 10px;
+}
+
+footer p {
+  margin: 0;
+  color: #fff;
+}
+
+/* Donate Section */
+#donate {
+  padding: 50px 20px;
+  background-color: #003566;
+  text-align: center;
+}
+
+#donate img {
+  width: 300px;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Styling for More dropdown */
+header .more {
+    position: relative;
+  }
+  
+  header .more:hover .more-dropdown {
+    display: block; /* Show the dropdown when hovering over the More button */
+  }
+  
+  header .more-dropdown {
+    display: none; /* Hide the dropdown by default */
+    position: absolute;
+    top: 100%;
+    left: -30px; /* Shift the dropdown slightly to the left */
+    background-color: #001d3d;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  header .more-dropdown li {
+    list-style-type: none;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  header .more-dropdown li:hover {
+    background-color: #001d3d;
+    color: #f9f0ca;
+  }
+  
+
