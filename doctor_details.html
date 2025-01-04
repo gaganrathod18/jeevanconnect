@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Details - JeevanConnect</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #003566;
+    }
+    header {
+      background-color: #003566;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      margin: 20px auto;
+      max-width: 600px;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .details {
+      text-align: left;
+    }
+    .details h3 {
+      text-align: center;
+      color: #007BFF;
+    }
+    .details p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+    footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Doctor Details</h1>
+  </header>
+  <div class="container">
+    <div class="details">
+      <h3 id="doctorName">Doctor Details</h3>
+      <p><strong>Specialization:</strong> <span id="specialization"></span></p>
+      <p><strong>Experience:</strong> <span id="experience"></span> years</p>
+      <p><strong>City:</strong> <span id="city"></span></p>
+      <p><strong>Contact:</strong> <span id="contact"></span></p>
+      <p><strong>Clinic Address:</strong> <span id="address"></span></p>
+    </div>
+  </div>
+  <footer>
+    <button onclick="window.location.href='index.html'">Go to Home</button>
+  </footer>
+  <script>
+    // Mock data for doctors
+    const doctorData = {
+      RakeshKumar: {
+        name: "Dr. Arun Verma",
+        specialization: "Cardiologist",
+        experience: 15,
+        city: "Mumbai",
+        contact: "+91 1234567890",
+        address: "Heart Care Clinic, Mumbai"
+      },
+      AyushBhoyar: {
+        name: "Dr. Neha Yadav",
+        specialization: "Pediatrician",
+        experience: 10,
+        city: "Delhi",
+        contact: "+91 9876543210",
+        address: "Brain & Spine Care, Delhi"
+      },
+      KabirChavhan: {
+        name: "Dr. Priya Sharma",
+        specialization: "General Practitioner",
+        experience: 12,
+        city: "Bangalore",
+        contact: "+91 1122334455",
+        address: "Bone Health Clinic, Bangalore"
+      }
+    };
+
+    // Retrieve the username from the login (simulated via query parameters)
+    const params = new URLSearchParams(window.location.search);
+    const username = params.get('username'); // Example: ?username=RakeshKumar
+
+    // Display doctor details based on username
+    const doctor = doctorData[username];
+    if (doctor) {
+      document.getElementById('doctorName').textContent = doctor.name;
+      document.getElementById('specialization').textContent = doctor.specialization;
+      document.getElementById('experience').textContent = doctor.experience;
+      document.getElementById('city').textContent = doctor.city;
+      document.getElementById('contact').textContent = doctor.contact;
+      document.getElementById('address').textContent = doctor.address;
+    } else {
+      document.querySelector('.details').innerHTML = '<h3>Doctor not found.</h3>';
+    }
+  </script>
+</body>
+</html>

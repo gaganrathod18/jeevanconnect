@@ -42,14 +42,6 @@
     button:hover {
       background-color: #0056b3;
     }
-    .hidden {
-      display: none;
-    }
-    .success-message {
-      font-size: 20px;
-      color: green;
-      margin-top: 20px;
-    }
   </style>
 </head>
 <body>
@@ -57,44 +49,41 @@
     <h1>Doctor Login</h1>
   </header>
   <div class="container">
-    <form id="loginForm" onsubmit="return handleLogin(event)">
+    <form id="doctorLoginForm" onsubmit="return handleLogin(event)">
       <input type="text" id="username" name="username" placeholder="Enter your username" required><br>
       <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
       <button type="submit">Login</button>
     </form>
-
-    <!-- Success Message will appear here -->
-    <div id="successMessage" class="hidden success-message">Login Successful! Redirecting to the homepage...</div>
+    <div id="errorMessage" class="hidden" style="color: red;">Invalid username or password. Please try again.</div>
   </div>
-  <footer>
-    <div class="button-container">
-      <br></br>
-      <button class="back-button" onclick="window.location.href='login.html'" style="border-radius: 1.5em;">❮ Previous</button>
-    </div>
-  </footer>
 
   <script>
     function handleLogin(event) {
       // Prevent the form from submitting normally
       event.preventDefault();
-      
-      // Simulating login success
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-      
-      // In a real application, you'd send the username and password to the server to verify them.
-      // For now, we just check if the fields are filled.
-      if (username && password) {
-        // Hide the login form and show the success message
-        document.getElementById('loginForm').style.display = 'none';
-        document.getElementById('successMessage').classList.remove('hidden');
-        
-        // Redirect to the homepage after 3 seconds
-        setTimeout(function() {
-          window.location.href = 'index.html'; // Change this to the actual homepage URL
-        }, 3000);
+
+      // List of valid doctor usernames and passwords
+      const validDoctors = [
+        { username: "Arunverma", password: "1234" },
+        { username: "Nehayadav", password: "4567" },
+        { username: "PriyaSharma", password: "7890" },
+      ];
+
+      // Get entered username and password
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      // Check if the entered credentials match any in the list
+      const isValid = validDoctors.some(doctor => 
+        doctor.username === username && doctor.password === password
+      );
+
+      if (isValid) {
+        // Redirect to doctor_details.html with the username as query parameter
+        window.location.href = `doctor_details.html?username=${username}`;
       } else {
-        alert("Please fill in both fields.");
+        // Show error message if invalid
+        document.getElementById('errorMessage').classList.remove('hidden');
       }
     }
   </script>

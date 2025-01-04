@@ -45,9 +45,9 @@
     .hidden {
       display: none;
     }
-    .success-message {
-      font-size: 20px;
-      color: green;
+    .error-message {
+      font-size: 16px;
+      color: red;
       margin-top: 20px;
     }
   </style>
@@ -57,46 +57,42 @@
     <h1>Patient Login</h1>
   </header>
   <div class="container">
-    <!-- Form will POST data to '/patient-login-submit' -->
     <form id="loginForm" onsubmit="return handleLogin(event)">
       <input type="text" id="username" name="username" placeholder="Enter your username" required><br>
       <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
       <button type="submit">Login</button>
     </form>
-
-    <!-- Success Message will appear here -->
-    <div id="successMessage" class="hidden success-message">Login Successful! Redirecting to the homepage...</div>
+    <div id="errorMessage" class="hidden error-message">Invalid username or password. Please try again.</div>
   </div>
-
   <footer>
     <div class="button-container">
-      <br></br>
+      <br><br>
       <button class="back-button" onclick="window.location.href='index.html'" style="border-radius: 1.5em;">❮ Previous</button>
     </div>
   </footer>
-
   <script>
     function handleLogin(event) {
-      // Prevent the form from submitting normally
       event.preventDefault();
       
-      // Simulating login success
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-      
-      // In real scenarios, you would send these details to a server for verification
-      // For now, just check if the fields are not empty
-      if (username && password) {
-        // Hide the login form and show the success message
-        document.getElementById('loginForm').style.display = 'none';
-        document.getElementById('successMessage').classList.remove('hidden');
-        
-        // Redirect to the homepage after 3 seconds
-        setTimeout(function() {
-          window.location.href = 'index.html';
-        }, 3000);
+      const validUsers = [
+        { username: "Ravi123", password: "123" },
+        { username: "Manoj", password: "456" },
+        { username: "Kailas", password: "789" },
+        { username: "Ram", password: "000" }
+      ];
+
+      const enteredUsername = document.getElementById('username').value.trim();
+      const enteredPassword = document.getElementById('password').value.trim();
+
+      const isValid = validUsers.some(user => 
+        user.username === enteredUsername && user.password === enteredPassword
+      );
+
+      if (isValid) {
+        window.location.href = `patient_details.html?username=${enteredUsername}`;
       } else {
-        alert("Please fill in both fields.");
+        const errorMessage = document.getElementById('errorMessage');
+        errorMessage.classList.remove('hidden');
       }
     }
   </script>

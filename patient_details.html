@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Details - JeevanConnect</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #003566;
+    }
+    header {
+      background-color: #003566;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      margin: 20px auto;
+      max-width: 600px;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .details {
+      text-align: left;
+    }
+    .details h3 {
+      text-align: center;
+      color: #007BFF;
+    }
+    .details p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+    footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Patient Details</h1>
+  </header>
+  <div class="container">
+    <div class="details">
+      <h3 id="patientName">Patient Details</h3>
+      <p><strong>Age:</strong> <span id="age"></span></p>
+      <p><strong>City:</strong> <span id="city"></span></p>
+      <p><strong>Blood Group:</strong> <span id="bloodGroup"></span></p>
+      <p><strong>Hemoglobin Level:</strong> <span id="hemoglobin"></span> g/dL</p>
+      <p><strong>Sugar Level:</strong> <span id="sugar"></span> mg/dL</p>
+      <p><strong>BP Level:</strong> <span id="bp"></span></p>
+      <p><strong>Previous Diseases:</strong> <span id="previousDisease"></span></p>
+      <p><strong>Current Symptoms:</strong> <span id="currentSymptoms"></span></p>
+    </div>
+  </div>
+  <footer>
+    <button onclick="window.location.href='index.html'">Go to Home</button>
+  </footer>
+  <script>
+    const patientData = {
+      Ravi123: {
+        name: "Ravi Kumar",
+        age: 32,
+        city: "Mumbai",
+        bloodGroup: "B+",
+        hemoglobin: 14.5,
+        sugar: 90,
+        bp: "120/80",
+        previousDisease: "Asthma",
+        currentSymptoms: "Fatigue, Headache",
+      },
+      Manoj: {
+        name: "Manoj Sharma",
+        age: 45,
+        city: "Delhi",
+        bloodGroup: "O+",
+        hemoglobin: 13.8,
+        sugar: 110,
+        bp: "130/85",
+        previousDisease: "Diabetes",
+        currentSymptoms: "Frequent Urination, Dizziness",
+      },
+      Kailas: {
+        name: "Kailas Patil",
+        age: 28,
+        city: "Pune",
+        bloodGroup: "A+",
+        hemoglobin: 15.2,
+        sugar: 85,
+        bp: "115/75",
+        previousDisease: "None",
+        currentSymptoms: "Sore Throat, Fever",
+      },
+      Ram: {
+        name: "Ram Verma",
+        age: 50,
+        city: "Bangalore",
+        bloodGroup: "AB+",
+        hemoglobin: 13.0,
+        sugar: 125,
+        bp: "140/90",
+        previousDisease: "Hypertension",
+        currentSymptoms: "Chest Pain, Shortness of Breath",
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const username = params.get('username');
+    
+    const patient = patientData[username];
+    if (patient) {
+      document.getElementById('patientName').textContent = patient.name;
+      document.getElementById('age').textContent = patient.age;
+      document.getElementById('city').textContent = patient.city;
+      document.getElementById('bloodGroup').textContent = patient.bloodGroup;
+      document.getElementById('hemoglobin').textContent = patient.hemoglobin;
+      document.getElementById('sugar').textContent = patient.sugar;
+      document.getElementById('bp').textContent = patient.bp;
+      document.getElementById('previousDisease').textContent = patient.previousDisease;
+      document.getElementById('currentSymptoms').textContent = patient.currentSymptoms;
+    } else {
+      document.querySelector('.details').innerHTML = '<h3>Patient not found.</h3>';
+    }
+  </script>
+</body>
+</html>
