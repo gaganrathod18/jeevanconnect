@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patient Login - JeevanConnect</title>
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -43,6 +42,14 @@
     button:hover {
       background-color: #0056b3;
     }
+    .hidden {
+      display: none;
+    }
+    .success-message {
+      font-size: 20px;
+      color: green;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -50,19 +57,48 @@
     <h1>Patient Login</h1>
   </header>
   <div class="container">
-    <form action="http://localhost:5000/patient-login" method="POST">
-      <input type="text" name="username" placeholder="Enter your username" required><br>
-      <input type="password" name="password" placeholder="Enter your password" required><br>
+    <!-- Form will POST data to '/patient-login-submit' -->
+    <form id="loginForm" onsubmit="return handleLogin(event)">
+      <input type="text" id="username" name="username" placeholder="Enter your username" required><br>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
       <button type="submit">Login</button>
     </form>
+
+    <!-- Success Message will appear here -->
+    <div id="successMessage" class="hidden success-message">Login Successful! Redirecting to the homepage...</div>
   </div>
 
   <footer>
     <div class="button-container">
       <br></br>
-      <button class="back-button" onclick="window.location.href='login.html'" style="border-radius: 1.5em;">❮ Previous</button>
+      <button class="back-button" onclick="window.location.href='index.html'" style="border-radius: 1.5em;">❮ Previous</button>
     </div>
   </footer>
+
+  <script>
+    function handleLogin(event) {
+      // Prevent the form from submitting normally
+      event.preventDefault();
+      
+      // Simulating login success
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      
+      // In real scenarios, you would send these details to a server for verification
+      // For now, just check if the fields are not empty
+      if (username && password) {
+        // Hide the login form and show the success message
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('successMessage').classList.remove('hidden');
+        
+        // Redirect to the homepage after 3 seconds
+        setTimeout(function() {
+          window.location.href = 'index.html';
+        }, 3000);
+      } else {
+        alert("Please fill in both fields.");
+      }
+    }
+  </script>
 </body>
 </html>
-

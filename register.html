@@ -45,6 +45,14 @@
     button:hover {
       background-color: #218838;
     }
+    .hidden {
+      display: none;
+    }
+    .success-message {
+      font-size: 18px;
+      color: green;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -53,7 +61,7 @@
   </header>
   <div class="container">
     <h2>Fill in Your Details</h2>
-    <form action="/register" method="POST">
+    <form id="registerForm" onsubmit="return handleRegister(event)">
       <input type="text" id="name" name="name" placeholder="Your Name" required>
       <input type="number" id="age" name="age" placeholder="Your Age" required>
       <input type="text" id="city" name="city" placeholder="City" required>
@@ -61,14 +69,46 @@
       <input type="password" id="password" name="password" placeholder="Password" required>
       <button type="submit">Register</button>
     </form>
+
+    <!-- Success Message will appear here -->
+    <div id="successMessage" class="hidden success-message">
+      Registration successful! You will be redirected to the login page shortly.
+    </div>
   </div>
+
+  <footer>
+    <div class="button-container">
+      <br><br>
+      <button class="back-button" onclick="window.location.href='login.html'" style="border-radius: 1.5em;">❮ Previous</button>
+    </div>
+  </footer>
+
+  <script>
+    function handleRegister(event) {
+      // Prevent the form from submitting to the server
+      event.preventDefault();
+
+      // Simulate a successful registration process
+      const name = document.getElementById('name').value;
+      const age = document.getElementById('age').value;
+      const city = document.getElementById('city').value;
+      const disease = document.getElementById('disease').value;
+      const password = document.getElementById('password').value;
+
+      // Perform basic validation (e.g., check that all fields are filled)
+      if (name && age && city && disease && password) {
+        // Hide the form and show the success message
+        document.getElementById('registerForm').style.display = 'none';
+        document.getElementById('successMessage').classList.remove('hidden');
+
+        // Redirect to the login page after 3 seconds
+        setTimeout(function() {
+          window.location.href = 'login.html'; // Change this to the actual login page URL if needed
+        }, 3000);
+      } else {
+        alert("Please fill in all fields.");
+      }
+    }
+  </script>
 </body>
 </html>
-<br></br>
-<br></br>
-<footer>
-  <div class="button-container">
-    <br></br>
-    <button class="back-button" onclick="window.location.href='login.html'" style="border-radius: 1.5em;">❮ Previous</button>
-  </div>
-</footer>

@@ -79,9 +79,13 @@
       background-color: #003566;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 15px 30px; /* Increased padding */
+      font-size: 1.2em; /* Increased font size */
       cursor: pointer;
       border-radius: 5px;
+      width: auto; /* Let the button adjust its width based on content */
+      margin: 0 auto; /* Center the button */
+      display: block; /* Ensure the button is a block element for centering */
     }
 
     #recommendation-form button:hover {
@@ -99,10 +103,12 @@
       padding: 10px 0;
       margin-top: 20px;
     }
+
     .button-container {
       text-align: center;
       margin-top: 30px;
     }
+
     .back-button {
       padding: 15px 30px;
       background-color: rgba(255, 255, 255, 0.76);
@@ -111,6 +117,7 @@
       font-size: 18px;
       cursor: pointer;
     }
+
     .back-button:hover {
       background-color: #007BFF;
       color: white;
@@ -119,17 +126,6 @@
   </style>
 </head>
 <body>
-  <!-- <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#login">Login</a></li>
-        <li><a href="medical-recommendation.html">Medical Recommendation</a></li>
-      </ul>
-    </nav>
-  </header> -->
-
   <main>
     <section id="medical-recommendation">
       <h1>Medical Recommendation</h1>
@@ -165,22 +161,25 @@
     <p>&copy; 2024 Your Website Name. All Rights Reserved.</p>
   </footer>
 
-  document.getElementById("recommendation-form").addEventListener("submit", async function (e) {
-  e.preventDefault();
-  
-  const age = document.getElementById("age").value;
-  const symptoms = document.getElementById("symptoms").value;
-  const allergies = document.getElementById("allergies").value;
+  <script>
+    document.getElementById("recommendation-form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      
+      const age = document.getElementById("age").value;
+      const symptoms = document.getElementById("symptoms").value;
+      const allergies = document.getElementById("allergies").value;
 
-  const response = await fetch("http://localhost:5000/api/recommendation", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ age, symptoms, allergies }),
-  });
+      const response = await fetch("http://localhost:5000/api/recommendation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ age, symptoms, allergies }),
+      });
 
-  const data = await response.json();
-  document.getElementById("recommendation-result").innerHTML = `
-    <p><strong>Recommended Action:</strong> ${data.recommendation}</p>
-  `;
-});
-
+      const data = await response.json();
+      document.getElementById("recommendation-result").innerHTML = `
+        <p><strong>Recommended Action:</strong> ${data.recommendation}</p>
+      `;
+    });
+  </script>
+</body>
+</html>
