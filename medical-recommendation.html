@@ -67,7 +67,8 @@
     }
 
     #recommendation-form input,
-    #recommendation-form textarea {
+    #recommendation-form textarea,
+    #recommendation-form select {
       width: 100%;
       padding: 10px;
       margin-bottom: 15px;
@@ -134,7 +135,19 @@
       <!-- Recommendation Form -->
       <form id="recommendation-form">
         <label for="age">Age:</label>
-        <input type="number" id="age" name="age" required>
+        <!-- Age dropdown -->
+        <select id="age" name="age" required>
+          <option value="" disabled selected>Select Your Age</option>
+          <!-- Options from 1 to 100 -->
+          <script>
+            for (let i = 1; i <= 100; i++) {
+              let option = document.createElement('option');
+              option.value = i;
+              option.text = i;
+              document.getElementById('age').appendChild(option);
+            }
+          </script>
+        </select>
         
         <label for="symptoms">Symptoms:</label>
         <textarea id="symptoms" name="symptoms" rows="4" required></textarea>
