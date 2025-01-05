@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Recommendation - Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #003566;
+      color: #fff;
+      padding: 10px 20px;
+    }
+
+    header nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    header nav ul li {
+      margin: 0 15px;
+    }
+
+    header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    header nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    #recommendation-details {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    #recommendation-details h1 {
+      font-size: 2em;
+      color: #003566;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background-color: #003566;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#login">Login</a></li>
+        <li><a href="medical-recommendation.html">Medical Recommendation</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="recommendation-details">
+      <h1>Recommendation Details</h1>
+
+      <div id="details">
+        <!-- Dynamic content goes here -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Your Website Name. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Retrieve query parameters
+    const params = new URLSearchParams(window.location.search);
+    const age = params.get('age');
+    const symptoms = params.get('symptoms');
+    const allergies = params.get('allergies');
+
+    // Logic for Medical Recommendations
+    let recommendation = "";
+
+    if (symptoms.toLowerCase().includes("cough") || symptoms.toLowerCase().includes("sore throat")) {
+      recommendation = `
+        <h3>Common Cold</h3>
+        <p><strong>Age:</strong> ${age}</p>
+        <p><strong>Symptoms:</strong> ${symptoms}</p>
+        <p><strong>Recommendations:</strong></p>
+        <ul>
+          <li>Stay hydrated with warm fluids</li>
+          <li>Rest and avoid heavy physical activity</li>
+          <li>If symptoms persist, consult a doctor for further examination</li>
+        </ul>
+      `;
+    } else if (symptoms.toLowerCase().includes("sneezing") || symptoms.toLowerCase().includes("itchy eyes")) {
+      recommendation = `
+        <h3>Allergy Reaction</h3>
+        <p><strong>Age:</strong> ${age}</p>
+        <p><strong>Symptoms:</strong> ${symptoms}</p>
+        <p><strong>Recommendations:</strong></p>
+        <ul>
+          <li>Consider antihistamines for allergy relief</li>
+          <li>Avoid allergens such as pollen and dust</li>
+          <li>If severe symptoms, consult a doctor</li>
+        </ul>
+      `;
+    } else if (symptoms.toLowerCase().includes("fever") || symptoms.toLowerCase().includes("chills")) {
+      recommendation = `
+        <h3>Fever</h3>
+        <p><strong>Age:</strong> ${age}</p>
+        <p><strong>Symptoms:</strong> ${symptoms}</p>
+        <p><strong>Recommendations:</strong></p>
+        <ul>
+          <li>Take fever-reducing medications like paracetamol</li>
+          <li>Monitor body temperature regularly</li>
+          <li>If fever exceeds 104°F or lasts more than 3 days, see a doctor</li>
+        </ul>
+      `;
+    } else {
+      recommendation = `
+        <h3>No clear match found</h3>
+        <p>Based on the information provided, we could not determine the exact condition. Please consult a medical professional for further advice.</p>
+      `;
+    }
+
+    document.getElementById("details").innerHTML = recommendation;
+  </script>
+</body>
+</html>
