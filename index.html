@@ -363,53 +363,39 @@ function toggleLanguage() {
 
 
 
-  <!-- Chatbot Popup -->
-  <div id="chatbot-popup" class="chatbot-popup">
-    <div class="chatbot-header">
-      <span>ChatBot</span>
-      <button id="close-chatbot" class="close-btn">&times;</button>
-    </div>
-    <div class="chatbot-body">
-      <div id="chatbox" class="chatbox">
-        <!-- Chat messages will appear here -->
-      </div>
-      <input type="text" id="user-input" class="user-input" placeholder="Type a message...">
-      <button id="send-message" class="send-btn">Send</button>
-    </div>
+  <!-- ChatBot Popup -->
+<div id="chatbot-popup" class="chatbot-popup">
+  <div class="chatbot-header">
+    <span>ChatBot</span>
+    <button id="close-chatbot" class="close-btn">&times;</button>
   </div>
+  <div class="chatbot-body">
+    <div id="chatbox" class="chatbox">
+      <!-- Chat messages will appear here -->
+    </div>
+    <input type="text" id="user-input" class="user-input" placeholder="Type a message...">
+    <button id="send-message" class="send-btn">Send</button>
+  </div>
+</div>
 
-  <!-- Button to open chatbot -->
-  <button id="open-chatbot" class="open-chat-btn">Chat with us</button>
+<!-- Button to open chatbot -->
+<button id="open-chatbot" class="open-chat-btn">Chat with us</button>
+
+<!-- JavaScript for chatbot -->
+<script>
+  // Open the ChatGPT website when the button is clicked
+  document.getElementById('open-chatbot').addEventListener('click', function () {
+    window.open("https://chatgpt.com/", "_blank"); // Open in a new tab
+  });
+
+  // Close the chatbot popup
+  document.getElementById('close-chatbot').addEventListener('click', function () {
+    document.getElementById('chatbot-popup').style.display = 'none';
+  });
 
 
-  <!-- javascript for chatbot -->
-    <!-- Place this before the closing </body> tag -->
-    <script>
-      // JavaScript code here...
-      document.getElementById('open-chatbot').addEventListener('click', function () {
-        document.getElementById('chatbot-popup').style.display = 'flex';
-      });
-
-      document.getElementById('close-chatbot').addEventListener('click', function () {
-        document.getElementById('chatbot-popup').style.display = 'none';
-      });
-
-      document.getElementById('send-message').addEventListener('click', function () {
-        let userMessage = document.getElementById('user-input').value;
-
-        if (userMessage) {
-          let chatbox = document.getElementById('chatbox');
-          chatbox.innerHTML += `<div class="user-message">${userMessage}</div>`;
-          document.getElementById('user-input').value = '';
-
-          setTimeout(function () {
-            let botMessage = "Hello! How can I assist you today?";
-            chatbox.innerHTML += `<div class="bot-message">${botMessage}</div>`;
-            chatbox.scrollTop = chatbox.scrollHeight;
-          }, 1000);
-        }
-      });
-    </script>
+  
+</script>
 
 
 
